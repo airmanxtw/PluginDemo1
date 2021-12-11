@@ -1,0 +1,32 @@
+<html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<body>
+    <div id='view'></div>
+    <div id='add'></div>     
+    <div id='add2'></div>  
+
+    <!-- <script src="myprototype.js"/> -->
+
+</body>
+<script src="test.0.0.1.js"></script>
+<script>
+    // let n = 1000000;
+    // alert(n.numberFormat(0, ".", ","));
+    $(document).ready(function () {
+        $("#add").add({            
+            oninput:function(val){
+                $("#view").text(val);
+            }
+        });   
+        $("#add").add({
+            color:"green",
+            oninput:function(val){
+                $("#view").text(val);
+            }
+        });      
+    })
+</script>
+
+</html>
