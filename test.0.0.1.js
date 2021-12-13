@@ -10,23 +10,36 @@
 
             let input = $("<input></input>");
             let input2 = $("<input></input>");
+            let returnval = function () {
+                let val = `${$.number(input.val())}.${$.number(input2.val())}`;
+                newParm.oninput(val);
+            }
+            let boardStyle = {
+                "border": "0px",
+                "border-bottom": "1px solid"
+            };
             input.css({
-                "background-color": newParm.color,
-                "text-align": "right",
-                "border": "0px",
-                "border-bottom": "1px solid"
+                ...{
+                    "background-color": newParm.color,
+                    "text-align": "right",
+                }, ...boardStyle
             });
-            input2.css({
+            input2.css({...{
                 "width": 50,
-                "border": "0px",
-                "border-bottom": "1px solid"
-            });
+            },...boardStyle});
             input.on('input', function () {
-                let n0 = $(this).val();
                 let n = $.number($(this).val(), 0);
-                console.log(`n0:${n0} n:${n}`);
                 $(this).val(n);
+                returnval();
+            });
+            input2.on('input', function () {
+                let n = $(this).val();
+                if (n.length == 3) n = n.substring(0, 2);
+                n = $.number(n);
+                $(this).val(n);
+                returnval();
             })
+
             $(this).append(input).append("<span>.</span>").append(input2);
         },
     });
