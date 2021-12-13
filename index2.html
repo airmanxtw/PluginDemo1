@@ -5,23 +5,13 @@
 <body>
     <div id='view'></div>
     <div id='add'></div>     
-    <div id='add2'></div>  
-
-    <!-- <script src="myprototype.js"/> -->
-
 </body>
+<script src="jquery.number.min.js"></script>
 <script src="test.0.0.1.js"></script>
 <script>
-    // let n = 1000000;
-    // alert(n.numberFormat(0, ".", ","));
     $(document).ready(function () {
-        $("#add").add({            
-            oninput:function(val){
-                $("#view").text(val);
-            }
-        });   
         $("#add").add({
-            color:"green",
+            color:"white",
             oninput:function(val){
                 $("#view").text(val);
             }

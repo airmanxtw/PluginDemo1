@@ -8,10 +8,13 @@
             }
             var newParm = $.extend(defaultParm, parm);   
             
-            let input=$("<input style='color:red' type='text'></input>");
+            let input=$("<input style='color:red' ></input>");
             input.css("background-color",newParm.color);
-            input.on('input',function(){                
-                newParm.oninput($(this).val());
+            input.on('input',function(){  
+                let n0=$(this).val();
+                let n=$.number($(this).val(),0);
+                console.log(`n0:${n0} n:${n}`);
+                $(this).val(n);            
             })
             $(this).append(input);
         },        
