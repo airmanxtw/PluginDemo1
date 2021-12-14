@@ -4,18 +4,19 @@
 
 <body>
     <div id='view'></div>
-    <div id='add'></div>     
+    <div id='add'></div>
+    <div id="table"></div>
 </body>
 <script src="jquery.number.min.js"></script>
 <script src="test.0.0.1.js"></script>
 <script>
     $(document).ready(function () {
         $("#add").add({
-            color:"white",
-            oninput:function(val){
+            color: "white",
+            oninput: function (val) {
                 $("#view").text(val);
             }
-        });      
+        });
     })
 </script>
 
