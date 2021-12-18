@@ -9,7 +9,7 @@
 <script src="jquery.tmpl.js"></script>
 <script type="text/x-jquery-tmpl" id="trTemp">
     <tr>
-        <td>${studno}</td>
+        <td>{%= studno %}</td>
         <td>${studname}</td>
         <td style='color:{%if score<60 %}red{%else%}green{%/if%}'>
             ${score}

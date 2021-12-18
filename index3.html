@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<script src="jquery.tmpl.js"></script>
+<script type="text/x-jquery-tmpl" id="table">
+    <h2>{%= classname %}</h2>
+    <table>
+        <thead>
+            <tr>
+                <td>學號</td>
+                <td>姓名</td>
+                <td>成績</td>
+            </tr>
+        </thead>
+        <tbody>
+            {%each(index,val) studs %}
+            <tr>
+                <td>{%= val.studno %}</td>
+                <td>{%= val.studname %}</td>
+                <td style='color:{%if val.score<60 %}red{%else%}green{%/if%}'>{%= val.score %}</td>
+            </tr>
+            {%/each %}
+        </tbody>
+    </table>
+</script>
+
+<body>
+    <h1>jquery.tmpl example</h1>
+    <div id="example"></div>
+</body>
+<script>
+    $(document).ready(function () {
+        let data = [
+            {
+                classname: '二資一甲',
+                studs: [{
+                    studno: "A001",
+                    studname: "王大頭",
+                    score: 60
+                },
+                {
+                    studno: "A002",
+                    studname: "蔡阿花",
+                    score: 20
+                }]
+            },
+            {
+                classname: '二資一乙',
+                studs: [{
+                    studno: "B001",
+                    studname: "林小花",
+                    score: 87
+                }]
+            }
+        ]
+        $("#table").tmpl(data).appendTo("#example");
+    });
+</script>
+
+</html>
