@@ -7,10 +7,11 @@
 
 <body>
     <div id="result"></div>
-</body>
-<script>
-    $(document).ready(function () {
-        let temp = `
+
+    <div style="width:50px;height: 50px;border-width: 1px;border-style:solid;" </body>
+        <script>
+            $(document).ready(function () {
+                let temp = `
                     {{if name=='airmanx'}}
                         <h1>{{:name}}</h1>
                     {{/if}}
@@ -18,15 +19,20 @@
                     <input data-link="name"/>
                     <button data-link="{on click ~dosome name}">click</button>
                     `;
-        let data = [{ name: 'airmanx' }, { name: 'ccsu' }];
-        let event = {
-            dosome: function (n, ev, eventArgs) {
-                alert(n);
-            }
-        }
-        let template = $.templates(temp);
-        template.link("#result", data, event);
-    })
-</script>
+                let data = [{ name: 'airmanx' }, { name: 'ccsu' }];
+                let event = {
+                    dosome: function (n, ev, eventArgs) {
+                        $.observable(data).insert({ name: 'mystic' });
+                        let see = data;
+                        debugger;
+                    }
+                };
+                // $(data).on("propertyChange", function (ev, eventArgs) {
+
+                // });
+                let template = $.templates(temp);
+                template.link("#result", data, event);
+            })
+        </script>
 
 </html>
