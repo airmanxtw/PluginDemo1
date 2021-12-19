@@ -14,8 +14,9 @@
                 }
             }
             let temp = `
-                <span style='${css}'  data-link="{on 'click' ~clickcube #index #data}">
-                    {{:#data}}
+                <span style='${css};background-color:{{if #data=="X"}}red{{else}}white{{/if}}' 
+                    data-link="{on 'click' ~clickcube #index #data}">
+                        {{:#data}}
                 </span>
             `;
             let template = $.templates(temp);
