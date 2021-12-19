@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="jquery.tmpl.js"></script>
+    <script src="stustTable.0.0.1.js"></script>
+</head>
+
+<body>
+    <div id='table'></div>
+</body>
+<script>
+    $(document).ready(function () {
+        let data = [
+            {
+                classname: '二資一甲',
+                studs: [{
+                    studno: "A001",
+                    studname: "王大頭",
+                    score: 60
+                },
+                {
+                    studno: "A002",
+                    studname: "蔡阿花",
+                    score: 20
+                }]
+            },
+            {
+                classname: '二資一乙',
+                studs: [{
+                    studno: "B001",
+                    studname: "林小花",
+                    score: 87
+                }]
+            }
+        ];
+        $("#table").table({ data });
+    });
+</script>
+
+</html>
