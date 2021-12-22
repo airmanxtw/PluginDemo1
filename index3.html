@@ -1,0 +1,21 @@
+<html>
+<body>
+    <div>
+        <img style="max-width: 250px;" :src="dataurl"></img>
+        <br/>
+        <input type="file" @change="getimgurl"></input>
+    </div>
+</body>
+<script src="https://unpkg.com/petite-vue"></script>
+<script>
+    PetiteVue.createApp({
+        dataurl:'https://www.stust.edu.tw/tc/images/stust-logo_m.png',
+        getimgurl(file){
+            const reader=new FileReader();
+            reader.addEventListener("load",()=>{this.dataurl=reader.result},false);
+            reader.readAsDataURL(file.target.files[0]);
+        }
+    }).mount()
+</script>
+
+</html>
