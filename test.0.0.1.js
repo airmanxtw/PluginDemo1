@@ -13,6 +13,8 @@
             let input3 = $("<div></div>").load("input.html");
 
 
+
+
             let returnval = function () {
                 let val = `${$.number(input.val())}.${$.number(input2.val())}`;
                 newParm.oninput(val);

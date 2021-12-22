@@ -3,20 +3,31 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <body>
-    <div id='view'></div>
-    <div id='add'></div>
-    <div id="table"></div>
+    <table id="table">
+    </table>
 </body>
-<script src="jquery.number.min.js"></script>
-<script src="test.0.0.1.js"></script>
+<script src="jquery.tmpl.js"></script>
+<script type="text/x-jquery-tmpl" id="trTemp">
+    <tr>
+        <td>{%= studno %}</td>
+        <td>${studname}</td>
+        <td style='color:{%if score<60 %}red{%else%}green{%/if%}'>
+            ${score}
+        </td>
+    </tr>
+</script>
 <script>
     $(document).ready(function () {
-        $("#add").add({
-            color: "white",
-            oninput: function (val) {
-                $("#view").text(val);
-            }
-        });
+        let data = [{
+            studno: "A0001",
+            studname: "顏大鈞",
+            score: 50
+        }, {
+            studno: "A0002",
+            studname: "黃士修",
+            score: 70
+        }]
+        $("#trTemp").tmpl(data).appendTo("#table");
     })
 </script>
 
